@@ -1,0 +1,64 @@
+<div>
+    <h2>
+        <span jhiTranslate="gramatikApp.eventEntity.home.title">Event Entities</span>
+        <button class="btn btn-primary float-right jh-create-entity create-event-entity" [routerLink]="['/', { outlets: { popup: ['event-entity-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="gramatikApp.eventEntity.home.createLabel">
+            Create new Event Entity
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="eventEntities">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="gramatikApp.eventEntity.name">Name</span></th>
+            <th><span jhiTranslate="gramatikApp.eventEntity.creationDate">Creation Date</span></th>
+            <th><span jhiTranslate="gramatikApp.eventEntity.user">User</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let eventEntity of eventEntities ;trackBy: trackId">
+                <td><a [routerLink]="['../event-entity', eventEntity.id ]">{{eventEntity.id}}</a></td>
+                <td>{{eventEntity.name}}</td>
+                <td>{{eventEntity.creationDate | date:'mediumDate'}}</td>
+                <td>
+                    {{eventEntity.user?.login}}
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../event-entity', eventEntity.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'event-entity/'+ eventEntity.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'event-entity/'+ eventEntity.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+
+{
+    "gramatikApp": {
+        "eventEntity" : {
+            "home": {
+                "title": "Event Entities",
+                "createLabel": "Dodaj Event Entity",
+                "createOrEditLabel": "Dodaj lub edytuj: Event Entity"
+            },
+            "created": "Utworzono nowy Event Entity z identyfikatorem {{ param }}",
+            "updated": "Uaktualniono Event Entity z identyfikatorem {{ param }}",
+            "deleted": "Usunięto Event Entity z identyfikatorem {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć Event Entity {{ id }}?"
+            },
+            "detail": {
+                "title": "Event Entity"
+            },
+            "name": "Name",
+            "creationDate": "Creation Date",
+            "user": "User"
+        }
+    }
+}
